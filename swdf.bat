@@ -1,5 +1,5 @@
 @echo off
-title System-wide data finder for Windows
+title local-data-finder
 :: use EnableDelayedExpansion to evaluate variables at runtime rather than at parse time
 :: This is usefull in "for" cicles where variables changes dinamically during execution
 
@@ -150,8 +150,8 @@ goto :eof
 :function_showManual
 echo               .andAHHAbnn.               
 echo            .aAHHHAAUUAAHHHAn.            
-echo           dHP-~*        *~-THb.          
-echo     .   .AHF                YHA.   .     System-wide data finder for Windows
+echo           dHP-~*        *~-THb.          local-data-finder
+echo     .   .AHF                YHA.   .     A system-wide data finder for Windows
 echo     I  .AHHb.              .dHHA.  I     
 echo     I  HHAUAAHAbn      adAHAAUAHA  I     Look for a pattern in various places in your system
 echo     I  HF~L_____        ____ IHHH  I     
@@ -168,7 +168,7 @@ echo            THHAAb.  .adAHHF
 echo             *UHHHHHHHHHHU*               You can use the wildcard character '*' to match 'any string'.
 echo               LHHUUHHHHHHI               
 echo             .adHHb *HHHHHbn.             Sample usage:
-echo      ..andAAHHHHHHb.AHHHHHHHAAbnn..          swdffw.bat *foo*bar* /D
+echo      ..andAAHHHHHHb.AHHHHHHHAAbnn..          ldf.bat *foo*bar* /D
 echo .ndAAHHHHHHUUHHHHHHHHHHUP-~*~-YUHHHAAbn. 
 echo;
 goto :eof
