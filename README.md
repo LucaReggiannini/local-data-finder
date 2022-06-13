@@ -1,7 +1,9 @@
 # swdf
 ## System-wide data finder for Windows
 
-I wanted to make a simple script that uses Windows built in tools only. No additional tools, no Powershell policy bypass, no complex options ... just the major features I use on a daily basis.
+I wanted to make a simple script that uses Windows built in tools only. 
+
+No additional tools, no Powershell policy bypass, no complex options... just the major features I use on a daily basis.
 
 ```
                .andAHHAbnn.               
