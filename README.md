@@ -31,7 +31,7 @@ No additional tools, no Powershell policy bypass, no complex options... just the
 ```
 
 Use it to search for remnants of uninstalled software:
-![screen_1.png](screen_1.png)
+![screen1.png](screen1.png)
 
 Use it to search IOC on your system:
-![screen_2.png](screen_2.png)
+![screen2.png](screen2.png)
