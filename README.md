@@ -1,5 +1,7 @@
 # swdf
-System-wide data finder for Windows
+## System-wide data finder for Windows
+
+I wanted to make a simple script that uses Windows built in tools only. No additional tools, no Powershell policy bypass, no complex options ... just the major features I use on a daily basis.
 
 ```
                .andAHHAbnn.               
@@ -26,3 +28,8 @@ System-wide data finder for Windows
  .ndAAHHHHHHUUHHHHHHHHHHUP-~*~-YUHHHAAbn. 
 ```
 
+Use it to search for remnants of uninstalled software:
+![screen_1.png](screen_1.png)
+
+Use it to search IOC on your system:
+![screen_2.png](screen_2.png)
