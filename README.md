@@ -1,5 +1,5 @@
-# swdf
-## System-wide data finder for Windows
+# local-data-finder
+## A system-wide data finder for Windows
 
 I wanted to make a simple script that uses Windows built in tools only. 
 
@@ -8,8 +8,8 @@ No additional tools, no Powershell policy bypass, no complex options... just the
 ```
                .andAHHAbnn.               
             .aAHHHAAUUAAHHHAn.            
-           dHP-~*        *~-THb.          
-     .   .AHF                YHA.   .     System-wide data finder for Windows
+           dHP-~*        *~-THb.          local-data-finder
+     .   .AHF                YHA.   .     A system-wide data finder for Windows
      I  .AHHb.              .dHHA.  I     
      I  HHAUAAHAbn      adAHAAUAHA  I     Look for a pattern in various places in your system
      I  HF~L_____        ____ IHHH  I     
@@ -26,7 +26,7 @@ No additional tools, no Powershell policy bypass, no complex options... just the
              *UHHHHHHHHHHU*               You can use the wildcard character '*' to match 'any string'.
                LHHUUHHHHHHI               
              .adHHb *HHHHHbn.             Sample usage:
-      ..andAAHHHHHHb.AHHHHHHHAAbnn..          swdffw.bat *foo*bar* /D
+      ..andAAHHHHHHb.AHHHHHHHAAbnn..          ldf.bat *foo*bar* /D
  .ndAAHHHHHHUUHHHHHHHHHHUP-~*~-YUHHHAAbn. 
 ```
 
