@@ -67,7 +67,7 @@ exit /b
 setlocal EnableDelayedExpansion
 set pattern=%1
 echo Scanning current folder: %cd%
-dir /s /b %cd%\%pattern%
+dir /s /b /a %cd%\%pattern%
 endlocal
 goto :eof
 
@@ -89,7 +89,7 @@ set line=%%a
 :: remove extra spaces
 set disk=!line: =!
 call echo Scanning disk !disk!
-call dir /s /b !disk!\%pattern%
+call dir /s /b /a !disk!\%pattern%
 echo %separator%
 )
 del %tempFile%
