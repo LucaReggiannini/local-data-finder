@@ -197,7 +197,7 @@ echo           dHP-~*        *~-THb.
 echo     .   .AHF                YHA.   .     Look for a pattern in various places in your system
 echo     I  .AHHb.              .dHHA.  I     
 echo     I  HHAUAAHAbn      adAHAAUAHA  I     Usage:
-echo     I  HF~L_____        ____ IHHH  I         swdffw.bat [PATTERN] [/D] [/F] [/K] [/V] [/C] [/P] [/S] [/A] [/I]
+echo     I  HF~L_____        ____ IHHH  I         ldf.bat [PATTERN] [/D] [/F] [/K] [/V] [/C] [/P] [/S] [/A] [/I]
 echo    HHI HAPK**~AYUHb  dAHHHHHHHHHH IHH    
 echo    HHI HHHD~ .andHH  HHUUPA~YHHHH IHH    /D match file names in the whole disk
 echo    YUI LHHP     *~Y  P~*     THHI IUP    /F match file name in the current working directory (recursive)
