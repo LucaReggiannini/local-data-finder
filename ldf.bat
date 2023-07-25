@@ -190,30 +190,29 @@ goto :eof
 
 :: Show the Help menu
 :function_showManual
-echo               .andAHHAbnn.               
-echo            .aAHHHAAUUAAHHHAn.            
-echo           dHP-~*        *~-THb.          local-data-finder
-echo     .   .AHF                YHA.   .     A system-wide data finder for Windows
+echo;
+echo               .andAHHAbnn.               local-data-finder
+echo            .aAHHHAAUUAAHHHAn.            A system-wide data finder for Windows
+echo           dHP-~*        *~-THb.          
+echo     .   .AHF                YHA.   .     Look for a pattern in various places in your system
 echo     I  .AHHb.              .dHHA.  I     
-echo     I  HHAUAAHAbn      adAHAAUAHA  I     Look for a pattern in various places in your system
-echo     I  HF~L_____        ____ IHHH  I     
-echo    HHI HAPK**~AYUHb  dAHHHHHHHHHH IHH    Usage:
-echo    HHI HHHD~ .andHH  HHUUPA~YHHHH IHH        swdffw.bat [PATTERN] [/D] [/F] [/K] [/V] [/C] [/P] [/S] [/A] [/I]
-echo    YUI LHHP     *~Y  P~*     THHI IUP    
-echo     V  'HK                   LHH'  V     /D match file names in the whole disk
-echo         THAn.  .d.aAAn.b.  .dHHP         /F match file name in the current working directory (recursive)
-echo         LHHHHAAUP* ~~ *YUAAHHHHI         /K match registry keys
-echo         'HHPA~*  .annn.  *~AYHH'         /V match registry values (slow search)
-echo          YHb    ~* ** *~    dHF          /C match netstat connections
-echo           *YAb..abdHHbndbndAP*           /P match processes
-echo            THHAAb.  .adAHHF              /S match services
-echo                                          /A match autoruns values (needs autorunsc64.exe from Syinternal Autoruns)
-echo                                          /I match installed programs
-echo             *UHHHHHHHHHHU*               You can use the wildcard character '*' to match 'any string'.
-echo               LHHUUHHHHHHI               
-echo             .adHHb *HHHHHbn.             Sample usage:
-echo      ..andAAHHHHHHb.AHHHHHHHAAbnn..          ldf.bat *foo*bar* /D
-echo .ndAAHHHHHHUUHHHHHHHHHHUP-~*~-YUHHHAAbn. 
+echo     I  HHAUAAHAbn      adAHAAUAHA  I     Usage:
+echo     I  HF~L_____        ____ IHHH  I         swdffw.bat [PATTERN] [/D] [/F] [/K] [/V] [/C] [/P] [/S] [/A] [/I]
+echo    HHI HAPK**~AYUHb  dAHHHHHHHHHH IHH    
+echo    HHI HHHD~ .andHH  HHUUPA~YHHHH IHH    /D match file names in the whole disk
+echo    YUI LHHP     *~Y  P~*     THHI IUP    /F match file name in the current working directory (recursive)
+echo     V  'HK                   LHH'  V     /K match registry keys
+echo         THAn.  .d.aAAn.b.  .dHHP         /V match registry values (slow search)
+echo         LHHHHAAUP* ~~ *YUAAHHHHI         /C match netstat connections
+echo         'HHPA~*  .annn.  *~AYHH'         /P match processes
+echo          YHb    ~* ** *~    dHF          /S match services
+echo           *YAb..abdHHbndbndAP*           /A match autoruns values (needs autorunsc64.exe from Syinternal Autoruns)
+echo            THHAAb.  .adAHHF              /I match installed programs
+echo             *UHHHHHHHHHHU*               
+echo               LHHUUHHHHHHI               You can use the wildcard character '*' to match 'any string'.
+echo             .adHHb *HHHHHbn.             
+echo      ..andAAHHHHHHb.AHHHHHHHAAbnn..      Sample usage:
+echo .ndAAHHHHHHUUHHHHHHHHHHUP-~*~-YUHHHAAbn.     ldf.bat *foo*bar* /D
 echo;
 goto :eof
 
