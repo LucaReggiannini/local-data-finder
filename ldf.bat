@@ -50,6 +50,21 @@ call :function_scanProcess %PATTERN%
 goto :continue_parseArguments
 )
 
+if "%2"=="/S" (
+call :function_scanServices %PATTERN%
+goto :continue_parseArguments
+)
+
+if "%2"=="/A" (
+call :function_scanAutoruns %PATTERN%
+goto :continue_parseArguments
+)
+
+if "%2"=="/I" (
+call :function_scanInstalled %PATTERN%
+goto :continue_parseArguments
+)
+
 echo Error: "%2" is not a valid option: ignored
 
 :continue_parseArguments
@@ -81,9 +96,9 @@ set separator=______________________________
 ::     Caption  
 ::     C:       
 ::     D:       
-:: by using 'findstr ":"' we can filter for disk labels only.
+:: by using 'findstr /I ":"' we can filter for disk labels only.
 :: Note that each line contains extra spaces: they need to be removed in order to be used as arguments in "dir" command
-wmic logicaldisk get deviceid | findstr "^.:" > %tempFile%
+wmic logicaldisk get deviceid | findstr /I "^.:" > %tempFile%
 for /f "tokens=*" %%a in (%tempFile%) do (
 set line=%%a
 :: remove extra spaces
@@ -124,10 +139,10 @@ call :function_asterisksToRegex %pattern%
 :: Use "net session" to check if the script runs as administrator
 net session >nul 2>&1
 if %errorLevel% == 0 (
-call netstat -anob | findstr !retval_asterisksToRegex!
+call netstat -anob | findstr /I !retval_asterisksToRegex!
 ) else (
 echo Not running as administrator: using 'netstat' without option '-b'
-call netstat -ano  | findstr !retval_asterisksToRegex!
+call netstat -ano  | findstr /I !retval_asterisksToRegex!
 )
 endlocal
 goto :eof
@@ -141,8 +156,35 @@ call :function_asterisksToRegex %pattern%
 call tasklist /V    >  %tempFile% 
 call tasklist /SVC  >> %tempFile%
 call tasklist /APPS >> %tempFile%
-call findstr !retval_asterisksToRegex! %tempFile% 
+call findstr /I !retval_asterisksToRegex! %tempFile% 
 del %tempFile%
+endlocal
+goto :eof
+
+:function_scanServices
+setlocal EnableDelayedExpansion
+set pattern=%1
+echo Scanning for services
+call :function_asterisksToRegex %pattern%
+call wmic service get /format:csv | findstr /I !retval_asterisksToRegex!
+endlocal
+goto :eof
+
+:function_scanInstalled
+setlocal EnableDelayedExpansion
+set pattern=%1
+echo Scanning for installed products
+call :function_asterisksToRegex %pattern%
+call wmic product get /format:csv  | findstr /I !retval_asterisksToRegex!
+endlocal
+goto :eof
+
+:function_scanAutoruns
+setlocal EnableDelayedExpansion
+set pattern=%1
+echo Scanning for autoruns values
+call :function_asterisksToRegex %pattern%
+call autorunsc64.exe -a * -m -nobanner -ct | findstr /I !retval_asterisksToRegex!
 endlocal
 goto :eof
 
@@ -156,7 +198,7 @@ echo     I  .AHHb.              .dHHA.  I
 echo     I  HHAUAAHAbn      adAHAAUAHA  I     Look for a pattern in various places in your system
 echo     I  HF~L_____        ____ IHHH  I     
 echo    HHI HAPK**~AYUHb  dAHHHHHHHHHH IHH    Usage:
-echo    HHI HHHD~ .andHH  HHUUPA~YHHHH IHH        swdffw.bat [PATTERN] [/D] [/F] [/K] [/V] [/C] [/P]
+echo    HHI HHHD~ .andHH  HHUUPA~YHHHH IHH        swdffw.bat [PATTERN] [/D] [/F] [/K] [/V] [/C] [/P] [/S] [/A] [/I]
 echo    YUI LHHP     *~Y  P~*     THHI IUP    
 echo     V  'HK                   LHH'  V     /D match file names in the whole disk
 echo         THAn.  .d.aAAn.b.  .dHHP         /F match file name in the current working directory (recursive)
@@ -164,7 +206,9 @@ echo         LHHHHAAUP* ~~ *YUAAHHHHI         /K match registry keys
 echo         'HHPA~*  .annn.  *~AYHH'         /V match registry values (slow search)
 echo          YHb    ~* ** *~    dHF          /C match netstat connections
 echo           *YAb..abdHHbndbndAP*           /P match processes
-echo            THHAAb.  .adAHHF              
+echo            THHAAb.  .adAHHF              /S match services
+echo                                          /A match autoruns values (needs autorunsc64.exe from Syinternal Autoruns)
+echo                                          /I match installed programs
 echo             *UHHHHHHHHHHU*               You can use the wildcard character '*' to match 'any string'.
 echo               LHHUUHHHHHHI               
 echo             .adHHb *HHHHHbn.             Sample usage:
